@@ -1,1 +1,3 @@
 This is an experiment in using a custom deflate compressor in PHARs created with [box](https://github.com/box-project/box).
+
+The idea is to override PHP's default `zlib.deflate` filter with a custom implementation. The `zlib.deflate` filter is used when [creating PHAR with GZ compression](https://github.com/php/php-src/blob/0ba92163a0a6927a1997e76c16adfc83488c27af/ext/phar/phar.c#L3203). Replacing the default implementation with a more performant compressor such as zopfli should in theory result in smaller PHARs.
